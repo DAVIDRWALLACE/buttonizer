@@ -1,0 +1,29 @@
+
+var buttonizer=(function(){
+		  
+function buttonize(btn,callback){
+$('<button type="button" />').attr({
+    id: btn.id,
+    class: btn.class + ' cmsbutton hide',
+	 data: btn.data
+}).html(btn.label).appendTo(btn.parent).on("click",function() {
+	
+callback()
+})
+};
+
+
+function showButtons(btns) {
+		$(".cmsbutton").addClass("hide");
+		$('#' + btns.split(' ').join(',#')).removeClass("hide");
+	};
+
+
+return {
+	createButton:buttonize,
+	show:showButtons
+}
+
+})();
+
+
